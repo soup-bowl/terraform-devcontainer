@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo "Removing existing environments"
+
+unset AWS_ACCESS_KEY_ID
+unset AWS_SECRET_ACCESS_KEY
+unset AWS_SESSION_TOKEN
+unset AWS_CREDENTIAL_EXPIRATION
+
+echo "Exporting current AWS environments"
+
+creds=$(aws configure export-credentials --format env) || { echo "Failed to get credentials"; exit 1; }
+
+eval "$creds"
+
+echo "Done"

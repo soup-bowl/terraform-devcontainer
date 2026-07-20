@@ -1,0 +1,40 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "CloudOps",
+	"image": "ghcr.io/soup-bowl/terraform-devcontainer:main",
+	"postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"hashicorp.terraform",
+				"AmazonWebServices.aws-toolkit-vscode",
+				"ms-azuretools.vscode-azureterraform",
+				"ms-azuretools.vscode-azureappservice",
+				"ms-azuretools.vscode-azurevirtualmachines",
+				"ms-azuretools.vscode-azurestorage",
+				"ms-azuretools.vscode-azureresourcegroups",
+				"ms-azuretools.vscode-azurefunctions",
+				"ms-azuretools.azure-dev",
+				"ms-vscode.azurecli"
+			],
+			"settings": {
+				"aws.telemetry": false,
+				"aws.cloudformation.telemetry.enabled": false,
+				"files.associations": {
+					"*.tfbackend": "terraform-vars"
+				}
+			}
+		},
+		"codespaces": {
+			"repositories": {
+				"soup-bowl/servers": {
+					"permissions": "write-all"
+				},
+				"soup-bowl/tf-practice": {
+					"permissions": "write-all"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Devcontainer itself",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "."
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"hashicorp.terraform"
+			]
+		}
+	}
+}

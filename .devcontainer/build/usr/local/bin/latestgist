@@ -1,0 +1,6 @@
+#! /bin/bash
+
+echo
+curl -L "$(gh api /gists --jq 'sort_by(.created_at) | reverse | .[0].files | to_entries[0].value.raw_url')"
+echo
+echo
