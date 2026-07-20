@@ -1,0 +1,7 @@
+{
+	"folders": [
+		{ "name": "devcontainer", "path": "." },
+		{ "name": "servers", "path": "../servers" },
+		{ "name": "tf-practice", "path": "../tf-practice" }
+	]
+}

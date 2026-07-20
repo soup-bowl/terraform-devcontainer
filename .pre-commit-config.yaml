@@ -1,0 +1,34 @@
+files: ^(infra|lza)/
+repos:
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v4.4.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+        exclude: CHANGELOG.md
+      - id: check-yaml
+      - id: check-executables-have-shebangs
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.105.0
+    hooks:
+      - id: terraform_docs
+        args:
+          - --hook-config=--path-to-file=readme.md
+          - --hook-config=--add-to-existing-file=true
+          - --hook-config=--create-file-if-not-exist=true
+      - id: terraform_tflint
+      - id: terraform_fmt
+        args:
+          - --args=--recursive
+      # - id: terraform_checkov
+      #   files: ^(infra|lza)/
+      #   args:
+      #     - --args=--quiet
