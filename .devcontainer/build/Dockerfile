@@ -67,4 +67,9 @@ RUN case $TARGETARCH in \
     && curl -fsSL "https://github.com/cli/cli/releases/download/v${GH_CLI_VERSION}/gh_${GH_CLI_VERSION}_linux_${TARGETARCH}.tar.gz" -o /tmp/gh.tar.gz \
     && tar -xzf /tmp/gh.tar.gz -C /usr/local/bin --strip-components=2 "gh_${GH_CLI_VERSION}_linux_${TARGETARCH}/bin/gh" \
     && rm -f /tmp/gh.tar.gz \
-    && chmod +x /usr/local/bin/gh
+    && chmod +x /usr/local/bin/gh \
+    # OCI CLI - https://docs.oracle.com/en-us/iaas/Content/dev/terraform/configuring.htm#security-token-auth
+    bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)" -- \
+    --accept-all-defaults \
+    --install-dir /usr/local/lib/oracle-cli \
+    --exec-dir /usr/local/bin
