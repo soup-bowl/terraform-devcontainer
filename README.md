@@ -35,13 +35,17 @@ This expires frequently - use `awscreds` to renew the session token.
 
 ### Oracle Cloud
 
-**lza/admin only** When it works, use `oci session authenticate`. token expires after 30-60 mins.
+ `oci session authenticate`
+
+**lza/admin only** When it works. token expires after 30-60 mins.
 
 When it stops working, you can hijack the servers/infra approach. This isn't default though as... well, chicken-and-egg.
 
 ### GitHub
 
-**lza/admin only** - In the terminal session, unset `GITHUB_TOKEN` and use `gh auth login`.
+`unset GITHUB_TOKEN && gh auth login`
+
+**lza/admin only** - Works for the active TTY but is unset for others. Say no to using it for Git auth.
 
 ### Cloudflare
 
