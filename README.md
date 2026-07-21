@@ -17,13 +17,19 @@ And access to these repos:
 
 Wait a little while for the initalisation, then you'll get an open workspace notification. If not, once finished open `cloudops.code-workspace` to get the full access.
 
+> [!NOTE]  
+> Any aspects managed by Terraform will come from the [**Servers' lza** repository][tf-s].
+
 ## Provider Logins
 
 ### Azure
 
 `az login`
 
-**lza/admin only** There is a SAS token stored in `ARM_SAS_TOKEN` that is managed from [**servers**][tf-s], that has access to the state files.
+> [!NOTE]  
+> Required for lza actions - non-lza runs should have an automatic authorisation.
+
+There is a SAS token stored in `ARM_SAS_TOKEN` that is managed from [**servers**][tf-s], that has access to the state files.
 
 ### Amazon web Services
 
@@ -37,7 +43,10 @@ This expires frequently - use `awscreds` to renew the session token.
 
  `oci session authenticate`
 
-**lza/admin only** When it works. token expires after 30-60 mins.
+> [!NOTE]  
+> Required for lza actions - non-lza runs should have an automatic authorisation.
+
+When it works. token expires after 30-60 mins.
 
 When it stops working, you can hijack the servers/infra approach. This isn't default though as... well, chicken-and-egg.
 
@@ -45,7 +54,10 @@ When it stops working, you can hijack the servers/infra approach. This isn't def
 
 `unset GITHUB_TOKEN && gh auth login`
 
-**lza/admin only** - Works for the active TTY but is unset for others. Say no to using it for Git auth.
+> [!NOTE]  
+> Required for lza actions - non-lza runs should have an automatic authorisation.
+
+Works for the active TTY but is unset for others. Say no to using it for Git auth.
 
 ### Cloudflare
 
