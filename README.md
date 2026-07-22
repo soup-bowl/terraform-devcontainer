@@ -11,6 +11,13 @@ Currently comes with:
 * Oracle Cloud CLI
 * GitHub CLI
 
+These convenience scripts:
+* `qrencode` - Run like `qrencode -t ANSIUTF8 "Something"` and it makes a scannable URL for auth purposes.
+* `shorturl` - Plops the provided URL into a tinyurl.
+* `awscreds` - Puts the authenticated AWS user credentials into envs used by Terraform.
+  * Can be tempermental, just check the code and run it manually if so.
+* `latestgist` - Get the latest gist contents, if using it to pass along the AWS login token. **Needs logging in to GitHub CLI explicitly, else it'll return the last public gist**.
+
 And access to these repos:
 * [soup-bowl/servers][tf-s]
 * [soup-bowl/tf-practice][tf-p]
